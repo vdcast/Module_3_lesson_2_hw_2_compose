@@ -16,7 +16,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.MaterialTheme
@@ -26,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
@@ -76,13 +79,14 @@ fun MainScreen() {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(3f)
+                .weight(1f)
                 .background(Pink40),
             contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
-                contentDescription = "Main image"
+                contentDescription = "Main image",
+                modifier = Modifier.scale(0.95f)
             )
         }
 
@@ -90,30 +94,76 @@ fun MainScreen() {
         Row(
             modifier = Modifier
                 .horizontalScroll(rememberScrollState())
-                .weight(1f)
+                .wrapContentHeight()
+//                .weight(1f)
                 .background(PurpleGrey40),
-            verticalAlignment = Alignment.CenterVertically
+
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
-                contentDescription = "Main image",
-                modifier = Modifier.size(200.dp)
-            )
-            Image(
-                painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
-                contentDescription = "Main image",
-                modifier = Modifier.size(200.dp)
-            )
-            Image(
-                painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
-                contentDescription = "Main image",
-                modifier = Modifier.size(200.dp)
-            )
-            Image(
-                painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
-                contentDescription = "Main image",
-                modifier = Modifier.size(200.dp)
-            )
+            Column(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .size(160.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
+                    contentDescription = "Preview 1"
+                )
+                Text(text = "Original")
+            }
+            Column(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .size(160.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
+                    contentDescription = "Preview 2"
+                )
+                Text(text = "ColorShift")
+            }
+            Column(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .size(160.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
+                    contentDescription = "Preview 3"
+                )
+                Text(text = "Sepia")
+            }
+            Column(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .size(160.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
+                    contentDescription = "Preview 4"
+                )
+                Text(text = "Saturation")
+            }
+            Column(
+                modifier = Modifier
+                    .padding(all = 8.dp)
+                    .size(160.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.husqvarna_ee_5_800x600),
+                    contentDescription = "Preview 5"
+                )
+                Text(text = "Snow")
+            }
         }
 
         // Bottom Bar icons
